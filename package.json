@@ -4,7 +4,7 @@
   "description": "React, Redux, and React Router apps using Server Side Rendering (SSR), Isomorphic, and Universal JS techniques",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/index.js"
   },
   "repository": {
     "type": "git",
@@ -46,5 +46,6 @@
     "webpack-dev-server": "2.8.2",
     "webpack-merge": "4.1.0",
     "webpack-node-externals": "1.6.0"
-  }
+  },
+  "devDependencies": {}
 }
