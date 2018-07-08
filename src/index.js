@@ -1,5 +1,5 @@
 import express from 'express'
-import renderer from './helpers/renderer'
+import renderer from 'helpers/renderer'
 
 const app = express()
 
