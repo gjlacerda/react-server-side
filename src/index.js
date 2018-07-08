@@ -6,7 +6,7 @@ const app = express()
 app.use(express.static('public'))
 
 app.get('/', (request, response) => {
-    response.send(renderer())
+    response.send(renderer(request))
 })
 
 app.listen(3000, () => {
