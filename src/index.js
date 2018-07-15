@@ -9,7 +9,7 @@ const app = express()
 
 app.use(express.static('public'))
 
-app.get('*', (request, response) => {
+app.get('*', async (request, response) => {
   const store = createStore()
 
   const promises = matchRoutes(Routes, request.path)
@@ -17,11 +17,9 @@ app.get('*', (request, response) => {
       return route.loadData ? route.loadData(store) : null
     })
 
-  Promise
-    .all(promises)
-    .then(() => {
-      response.send(renderer(request, store))
-    })
+  await Promise.all(promises)
+
+  response.send(renderer(request, store))
 })
 
 app.listen(3000, () => {
