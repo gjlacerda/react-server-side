@@ -32,9 +32,7 @@ export const loadData = (store) => {
   return store.dispatch(fetchUsers())
 }
 
-export default connect(
-  mapStateToProps,
-  {
-    fetchUsers
-  }
-)(UserLists)
+export default {
+  component: connect(mapStateToProps, {fetchUsers})(UserLists),
+  loadData
+}
