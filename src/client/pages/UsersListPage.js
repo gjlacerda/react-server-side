@@ -18,7 +18,7 @@ class UserLists extends Component {
     return (
       <div>
         Here is a big list of users:
-          <ul>{this.renderUsers()}</ul>
+        <ul>{this.renderUsers()}</ul>
       </div>
     )
   }
@@ -33,6 +33,6 @@ export const loadData = (store) => {
 }
 
 export default {
-  component: connect(mapStateToProps, {fetchUsers})(UserLists),
+  component: connect(mapStateToProps, { fetchUsers })(UserLists),
   loadData
 }
