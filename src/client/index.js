@@ -23,5 +23,3 @@ ReactDOM.hydrate(
     </Provider>,
     document.getElementById('root')
 )
-
-
