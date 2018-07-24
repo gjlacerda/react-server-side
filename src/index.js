@@ -27,7 +27,14 @@ app.get('*', async (request, response) => {
 
   await Promise.all(promises)
 
-  response.send(renderer(request, store))
+  const context = {}
+  const content = renderer(request, store, context)
+  
+  if (context.notFound) {
+    response.status(404)
+  }
+
+  response.send(content)
 })
 
 app.listen(3000, () => {
