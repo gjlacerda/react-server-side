@@ -1,8 +1,8 @@
-import React from 'react'
 import App from 'client/App'
 import HomePage from 'client/pages/HomePage'
 import UsersListPage from 'client/pages/UsersListPage';
 import NotFoundPage from 'client/pages/NotFoundPage';
+import AdminsListPage from 'client/pages/AdminsListPage';
 
 export default [
   {
@@ -16,6 +16,10 @@ export default [
       {
         ...UsersListPage,
         path: '/users',
+      },
+      {
+        ...AdminsListPage,
+        path: '/admins',
       },
       {
         ...NotFoundPage,

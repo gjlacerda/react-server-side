@@ -19,21 +19,19 @@ app.use(express.static('public'))
 
 app.get('*', async (request, response) => {
   const store = createStore(request)
-
   const promises = matchRoutes(Routes, request.path)
     .map(({ route }) => {
       return route.loadData ? route.loadData(store) : null
     })
-
+  
   await Promise.all(promises)
 
   const context = {}
   const content = renderer(request, store, context)
-  
+
   if (context.notFound) {
     response.status(404)
   }
-
   response.send(content)
 })
 
