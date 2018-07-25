@@ -23,6 +23,15 @@ app.get('*', async (request, response) => {
     .map(({ route }) => {
       return route.loadData ? route.loadData(store) : null
     })
+    .map(promise => {
+      if (promise) {
+        return new Promise(resolve => {
+          promise
+            .then(resolve)
+            .catch(resolve)
+        })
+      }
+    })
   
   await Promise.all(promises)
 
