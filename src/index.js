@@ -38,9 +38,13 @@ app.get('*', async (request, response) => {
   const context = {}
   const content = renderer(request, store, context)
 
+  if (context.url) {
+    return response.redirect(301, context.url)
+  }
   if (context.notFound) {
     response.status(404)
   }
+
   response.send(content)
 })
 
